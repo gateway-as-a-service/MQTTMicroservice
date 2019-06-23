@@ -30,7 +30,6 @@ class MQTTSubscriber(threading.Thread):
     def _process_message_received(self, client, user_data, message):
         try:
             self.logger.info("Topic: {}".format(message.topic))
-            self.logger.info("QoS: {}".format(message.qos))
             parsed_message = json.loads(message.payload.decode("utf-8"))
             self.logger.info("Message: {}".format(parsed_message))
 
